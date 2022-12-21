@@ -1,0 +1,9 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+/modules.xml
+out/
+/Airport.iml
+/.idea/**
+/out/production/**
+/misc.xml
