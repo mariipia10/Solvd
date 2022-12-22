@@ -1,12 +1,7 @@
-package airport;
-
+package transport;
 
 import interfaces.Identifiable;
-import transport.Transport;
 
-/**
- * @author piahe
- */
 public class Airplane extends Transport implements Identifiable<Integer> {
 
     private final static int MAX_CAPACITY = 150;

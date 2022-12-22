@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * @author piahe
- */
 public class Airport implements IAirport {
 
     public List<Flight> flights;
@@ -42,8 +39,7 @@ public class Airport implements IAirport {
 
     @Override
     public void showFlights() {
-        for (Iterator<Flight> iterator = flights.iterator(); iterator.hasNext(); ) {
-            Flight next = iterator.next();
+        for (Flight next : flights) {
             System.out.println(next.toString());
         }
 
