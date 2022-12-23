@@ -13,11 +13,16 @@ public class FlightRoute {
     private boolean hasLayovers;
     private List<String> layovers;
 
-    public FlightRoute(String fromCountry, String toCountry, boolean hasLayovers) {
+    public FlightRoute(String fromCountry, String toCountry, List<String> layovers) {
         setFromCountry(fromCountry);
         setToCountry(toCountry);
-        this.hasLayovers = hasLayovers;
+        setLayovers(layovers);
         this.layovers = new ArrayList<>();
+    }
+
+    public void setLayovers(List<String> layovers) {
+        this.layovers = layovers;
+        this.hasLayovers = true;
     }
 
     public String getFromCountry() {
@@ -32,12 +37,8 @@ public class FlightRoute {
         return toCountry;
     }
 
-    public boolean isHasLayovers() {
+    public boolean HasLayovers() {
         return hasLayovers;
-    }
-
-    public void setHasLayovers(boolean hasLayovers) {
-        this.hasLayovers = hasLayovers;
     }
 
     public List<String> getLayovers() {
@@ -47,7 +48,7 @@ public class FlightRoute {
     public void addLayover(String country) {
         this.layovers.add(country);
     }
-    
+
     private void setToCountry(String toCountry) {
         this.toCountry = toCountry;
     }

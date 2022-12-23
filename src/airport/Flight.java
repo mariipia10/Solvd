@@ -1,15 +1,14 @@
 package airport;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
+import interfaces.IComparable;
 import people.Passanger;
 import interfaces.Identifiable;
 import transport.Airplane;
 
-public class Flight implements Identifiable<Integer> {
-
+public class Flight implements Identifiable<Integer>, IComparable {
     private FlightRoute flightRoute;
     private int id;
     private int arriveTime; //Future refactor into LocalDate!
@@ -18,6 +17,7 @@ public class Flight implements Identifiable<Integer> {
     private int availableSeats;
 
     private List<Passanger> passangers;
+    private double basePrice = 100.0;
 
     public Flight(FlightRoute flightRoute, int id, int arriveTime, int departureTime, Airplane airplane, int availableSeats) {
         this.flightRoute = flightRoute;
@@ -37,6 +37,9 @@ public class Flight implements Identifiable<Integer> {
         return availableSeats >= airplane.getCapacity();
     }
 
+    public double getBasePrice() {
+        return basePrice;
+    }
 
     public int getArriveTime() {
         return arriveTime;
@@ -94,14 +97,14 @@ public class Flight implements Identifiable<Integer> {
         this.id = x;
     }
 
-    public boolean compareFlightRoute(String from, String to) {
-        return flightRoute.getToCountry().equals(to) && flightRoute.getFromCountry().equals(from);
-    }
-
     @Override
     public String toString() {
         return "Flight{" + "flightRoute=" + flightRoute + ", id=" + id + ", arriveTime=" + arriveTime + ", departureTime=" + departureTime + ", airplane=" + airplane + ", availableSeats=" + availableSeats + ", passangers=" + passangers + '}';
     }
 
+    @Override
+    public boolean compareString(String from, String to) {
+        return flightRoute.getToCountry().equals(to) && flightRoute.getFromCountry().equals(from);
+    }
 }
 

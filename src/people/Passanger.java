@@ -9,9 +9,15 @@ public final class Passanger implements Identifiable<String> {
     private String surname;
     private String passport;
 
-    public Passanger(String surname, String passport) {
+    public Passanger(String name, String surname, String passport) {
+        this.name = name;
         this.surname = surname;
         this.passport = passport;
+    }
+
+    public String getFullName() {
+        return name + " " + surname;
+
     }
 
     @Override
